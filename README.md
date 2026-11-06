@@ -78,8 +78,6 @@ git push origin v0.1.0
 
 ## 图标
 
-托盘图标由 `node scripts/make-tray-icon.mjs` 生成（macOS 单色模板 + Windows 彩色）。应用图标用 Tauri 默认图标，替换：
+- 应用图标：源文件 `assets/icon.svg`，渲染成 `assets/icon.png`（1024×1024）后执行 `npm run tauri icon assets/icon.png` 生成整套图标。
+- 托盘图标：`node scripts/make-tray-icon.mjs` 生成 macOS 单色模板与 Windows 彩色图标。
 
-```bash
-npm run tauri icon path/to/icon.png
-```
