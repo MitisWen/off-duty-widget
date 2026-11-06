@@ -1,0 +1,405 @@
+.widget {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 10px 14px 12px;
+  border-radius: 18px;
+  border: 0.5px solid var(--border);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0) 44%),
+    var(--surface);
+  color: var(--text-primary);
+  overflow: hidden;
+}
+
+/* Header ------------------------------------------------------------- */
+
+.widget__header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 26px;
+  cursor: grab;
+}
+
+.widget__header:active {
+  cursor: grabbing;
+}
+
+.widget__mark {
+  display: inline-flex;
+  color: var(--accent);
+}
+
+.widget__title {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background-color 120ms var(--ease), color 120ms var(--ease);
+}
+
+.icon-button:hover {
+  background: var(--hover);
+  color: var(--text-primary);
+}
+
+.icon-button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+/* Timer -------------------------------------------------------------- */
+
+.timer {
+  margin-top: 2px;
+}
+
+.timer__value {
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 44px;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-primary);
+}
+
+.phase-rest .timer__value {
+  font-size: 28px;
+  letter-spacing: 0;
+}
+
+.phase-done .timer__value {
+  color: var(--accent);
+}
+
+.timer__meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.timer__percent {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Progress ----------------------------------------------------------- */
+
+.progress {
+  height: 4px;
+  margin-top: 8px;
+  border-radius: 2px;
+  background: var(--track);
+  overflow: hidden;
+}
+
+.progress__fill {
+  height: 100%;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  transition: width 1s linear;
+}
+
+.progress-spacer {
+  height: 4px;
+  margin-top: 8px;
+}
+
+/* Message moved into the card after clicking the bubble ---------------- */
+
+.praise {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 4px;
+  animation: praise-in 320ms var(--ease);
+}
+
+.praise__title {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 12px;
+  color: var(--accent);
+}
+
+.praise__note {
+  font-size: 11px;
+  line-height: 12px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@keyframes praise-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Overtime encouragement bubble (own window) ------------------------- */
+
+.bubble {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0 14px;
+  border-radius: 16px;
+  border: 0.5px solid var(--border);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0) 44%),
+    var(--surface);
+  color: var(--text-primary);
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-appearance: none;
+  transition: filter 120ms var(--ease), transform 120ms var(--ease);
+  animation: bubble-in 320ms var(--ease);
+}
+
+.bubble:hover {
+  filter: brightness(1.06);
+}
+
+.bubble:active {
+  transform: scale(0.98);
+}
+
+.bubble:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.bubble__title {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 13px;
+  color: var(--accent);
+}
+
+.bubble__note {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@keyframes bubble-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Schedule entry ----------------------------------------------------- */
+
+.schedule {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  align-self: flex-start;
+  margin-top: auto;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 11px;
+  cursor: pointer;
+  transition: color 120ms var(--ease);
+}
+
+.schedule:hover {
+  color: var(--text-primary);
+}
+
+.schedule:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Schedule editor ---------------------------------------------------- */
+
+.editor {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 4px;
+  flex: 1 1 auto;
+}
+
+.editor__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.time-input {
+  width: 92px;
+  padding: 2px 6px;
+  border-radius: 6px;
+  border: 0.5px solid var(--border-strong);
+  background: var(--field);
+  color: var(--text-primary);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.time-input::-webkit-calendar-picker-indicator {
+  opacity: 0.45;
+}
+
+.time-input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.editor__error {
+  min-height: 14px;
+  font-size: 10px;
+  line-height: 14px;
+  color: var(--danger);
+}
+
+.editor__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+  margin-top: auto;
+}
+
+.ghost-button,
+.primary-button {
+  padding: 3px 10px;
+  border-radius: 7px;
+  font-size: 11px;
+  cursor: pointer;
+  transition: opacity 120ms var(--ease), background-color 120ms var(--ease);
+}
+
+.ghost-button {
+  border: 0.5px solid var(--border-strong);
+  background: transparent;
+  color: var(--text-secondary);
+}
+
+.ghost-button:hover {
+  background: var(--hover);
+  color: var(--text-primary);
+}
+
+.primary-button {
+  border: none;
+  background: var(--accent);
+  color: #fff;
+}
+
+.primary-button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+/* Collapsed pill ----------------------------------------------------- */
+
+.pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  height: 100%;
+  padding: 0 10px 0 12px;
+  border-radius: 18px;
+  border: 0.5px solid var(--border);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0) 44%),
+    var(--surface);
+  color: var(--text-primary);
+  cursor: grab;
+}
+
+.pill:active {
+  cursor: grabbing;
+}
+
+.pill__mark {
+  display: inline-flex;
+  color: var(--accent);
+}
+
+.pill__label {
+  font-size: 11px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.pill__value {
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Windows ------------------------------------------------------------- */
+
+/* The DWM rounds the native window at ~8px; matching the CSS radius keeps the
+   acrylic blur inside the same silhouette. */
+html[data-os="windows"] .widget,
+html[data-os="windows"] .pill,
+html[data-os="windows"] .bubble {
+  border-radius: 8px;
+}

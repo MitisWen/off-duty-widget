@@ -1,0 +1,115 @@
+:root {
+  color-scheme: light dark;
+  --font-ui: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", "PingFang SC", "Microsoft YaHei",
+    "Microsoft JhengHei", "Helvetica Neue", Arial, sans-serif;
+
+  --text-primary: rgba(0, 0, 0, 0.88);
+  --text-secondary: rgba(0, 0, 0, 0.55);
+  --border: rgba(0, 0, 0, 0.1);
+  --border-strong: rgba(0, 0, 0, 0.16);
+  --surface: rgba(255, 255, 255, 0.42);
+  --field: rgba(255, 255, 255, 0.5);
+  --hover: rgba(0, 0, 0, 0.06);
+  --track: rgba(0, 0, 0, 0.1);
+  --danger: #c0392b;
+
+  --accent: #5b63e8;
+  --accent-2: #5b63e8;
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --duration: 180ms;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-primary: rgba(255, 255, 255, 0.94);
+    --text-secondary: rgba(255, 255, 255, 0.58);
+    --border: rgba(255, 255, 255, 0.14);
+    --border-strong: rgba(255, 255, 255, 0.22);
+    --surface: rgba(255, 255, 255, 0.06);
+    --field: rgba(255, 255, 255, 0.08);
+    --hover: rgba(255, 255, 255, 0.1);
+    --track: rgba(255, 255, 255, 0.14);
+    --danger: #ff8a80;
+  }
+}
+
+/* Solid fallback when native vibrancy is unavailable. */
+html[data-vibrancy="off"] {
+  --surface: rgba(250, 250, 252, 0.94);
+  --field: rgba(0, 0, 0, 0.05);
+}
+
+@media (prefers-color-scheme: dark) {
+  html[data-vibrancy="off"] {
+    --surface: rgba(28, 28, 32, 0.94);
+  }
+}
+
+.phase-before {
+  --accent: #5b63e8;
+  --accent-2: #5b63e8;
+}
+
+.phase-working {
+  --accent: #f08a4b;
+  --accent-2: #e85d6b;
+}
+
+.phase-done {
+  --accent: #1fa97a;
+  --accent-2: #1fa97a;
+}
+
+.phase-rest {
+  --accent: #7c8390;
+  --accent-2: #7c8390;
+}
+
+@media (prefers-color-scheme: dark) {
+  .phase-before {
+    --accent: #8b93ff;
+    --accent-2: #8b93ff;
+  }
+
+  .phase-working {
+    --accent: #ffb26b;
+    --accent-2: #ff7a7a;
+  }
+
+  .phase-done {
+    --accent: #5ee0a0;
+    --accent-2: #5ee0a0;
+  }
+
+  .phase-rest {
+    --accent: #a5acba;
+    --accent-2: #a5acba;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  background: transparent;
+}
+
+body {
+  overflow: hidden;
+  font-family: var(--font-ui);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: default;
+}
+
+button,
+input {
+  font-family: inherit;
+}
